@@ -1,5 +1,5 @@
  # jug1 and jug2 contain the value 
-jug1, jug2, goal = 4, 3, 2 
+jug1, jug2, goal = 4, 3, 2
 
 # Initialize a 2D list for visited states
 # The list will have dimensions (jug1+1) x (jug2+1) to cover all possible states
@@ -39,7 +39,10 @@ def waterJug(vol1, vol2):
 print("Steps: ") 
 print("Jug1 \t Jug2 ")
 print("----- \t ------")
-waterJug(0, 0)
+if(waterJug(0, 0)):
+	print("Yes")
+else:
+	print("no")
 
 ###  OUTPUT  ###
 
