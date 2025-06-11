@@ -7,6 +7,9 @@ win_positions = (
  
 def game(player):
     # diplay current mesh
+
+    
+
     print("\n", " | ".join(mesh[:3]))
     print("---+---+---")
     print("", " | ".join(mesh[3:6]))
@@ -15,25 +18,31 @@ def game(player):
  
     # Loop until player valid input cell number.
     while True:
-        try:
-            ch = int(input(f"Enter player {player}'s choice : "))
-            if str(ch) not in mesh:
-                raise ValueError
-            mesh[ch-1] = player
-            break
-        except ValueError:
+        ch = input(f"Enter player {player}'s choice : ")
+        if(ch not in pos) :
             print("Invalid position number.")
+        else :
+            mesh[int(ch)-1] = player
+            pos.remove(ch)
+            break
  
     # Return winning positions if player wins, else None.
     for wp in win_positions:
-        if all(mesh[pos] == player for pos in wp):
-            return wp
-    return None
+        count = 0
+        for i in wp:
+            if(mesh[i] == player):
+                count+=1
+        if(count==3):
+            return True     
+    return False
 
 player1 = "X"
 player2 = "O"
 player = player1
 mesh = list("123456789")
+pos = list("123456789")
+
+print("mesh : ",mesh)
  
 for i in range(9):
 	won = game(player)

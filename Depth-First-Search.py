@@ -7,7 +7,7 @@ graph = {
 'E' : ['C','D']
 }
 # Set used to store visited nodes.
-visitedNodes = list()
+visitedNodes = []
 # function
 def dfs(visitedNodes, graph, node):
 	if node not in visitedNodes:

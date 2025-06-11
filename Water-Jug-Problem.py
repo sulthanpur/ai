@@ -3,7 +3,14 @@ jug1, jug2, goal = 4, 3, 2
 
 # Initialize a 2D list for visited states
 # The list will have dimensions (jug1+1) x (jug2+1) to cover all possible states
-visited = [[False for _ in range(jug2 + 1)] for _ in range(jug1 + 1)] 
+# visited = [[False for _ in range(jug2 + 1)] for _ in range(jug1 + 1)] 
+
+visited = []
+for i in range(jug1 + 1):
+    row = []
+    for j in range(jug2 + 1):
+        row.append(False)
+    visited.append(row)
 
 def waterJug(vol1, vol2):
 	# Check if we reached the goal state
@@ -33,9 +40,6 @@ print("Steps: ")
 print("Jug1 \t Jug2 ")
 print("----- \t ------")
 waterJug(0, 0)
-
-
-
 
 ###  OUTPUT  ###
 
