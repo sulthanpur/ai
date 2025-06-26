@@ -59,3 +59,52 @@ min_cost, opt_path = tsp_bfs(graph)
 print("\nOptimal Solution:")
 print(f"Minimum cost: {min_cost}")
 print(f"Optimal path: {opt_path}")
+
+
+
+
+
+
+
+
+# # Distance matrix
+# distance = [
+#     [0, 10, 15, 20],  # From city 0
+#     [10, 0, 35, 25],  # From city 1
+#     [15, 35, 0, 30],  # From city 2
+#     [20, 25, 30, 0]   # From city 3
+# ]
+
+# n = len(distance)  # Number of cities
+# min_cost = float('inf')
+# best_path = []
+
+# # Function to generate permutations
+# def permute(path, l, r):
+#     global min_cost, best_path
+#     if l == r:
+#         cost = 0
+#         full_path = [0] + path + [0]  # Start and end at city 0
+#         for i in range(len(full_path) - 1):
+#             cost += distance[full_path[i]][full_path[i+1]]
+#         if cost < min_cost:
+#             min_cost = cost
+#             best_path = full_path[:]
+#     else:
+#         for i in range(l, r+1):
+#             path[l], path[i] = path[i], path[l]  # swap
+#             permute(path, l+1, r)
+#             path[l], path[i] = path[i], path[l]  # backtrack
+
+# # Start from city 0, so generate permutations of cities 1 to n-1
+# cities = []
+# for i in range(1, n):
+#     cities.append(i)
+
+# # Call our custom permutation function
+# permute(cities, 0, len(cities)-1)
+
+# # Print result
+# print("Best path:", ' -> '.join(str(city) for city in best_path))
+# print("Minimum cost:", min_cost)
+
